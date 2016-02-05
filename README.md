@@ -11,7 +11,7 @@ the [upstream cloud-init documentation](https://cloudinit.readthedocs.org/en/lat
 Starting
 --------
 
-Clone this repo and issue ```vagrant up```
+Clone this repo and issue ```vagrant up --provision```
 
 Contributing
 ------------
