@@ -13,12 +13,11 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provision "shell", inline: <<-SHELL
-    sudo yum install httpd 
-    sudo yum install mariadb-server
-    sudo yum install mariadb
-    sudo yum install php
-    sudo yum install php-mysql
-    sudo yum install mariadb-server
+    sudo yum -y install httpd 
+    sudo yum -y install mariadb-server
+    sudo yum -y install mariadb
+    sudo yum -y install php
+    sudo yum -y install php-mysql
     sudo echo "<?php phpinfo();" > /var/www/html/info.php
     sudo systemctl start httpd.service
     sudo systemctl enable httpd.service
