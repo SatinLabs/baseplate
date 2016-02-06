@@ -31,6 +31,7 @@ Vagrant.configure(2) do |config|
 
   # For Development, install phpMyAdmin
   config.vm.provision "shell", inline: <<-SHELL
+    sudo yum -y install epel-release
     sudo yum -y install phpmyadmin
   SHELL
 
