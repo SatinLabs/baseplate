@@ -35,10 +35,12 @@ Vagrant.configure(2) do |config|
     sudo yum -y install phpmyadmin
   SHELL
 
-  config.vm.provision "file", source: "./configs/phpmyadmin/phpMyAdmin.conf", destination: "/etc/httpd/conf.d/phpMyAdmin.conf"
-  config.vm.provision "file", source: "./configs/phpmyadmin/config.inc.php", destination: "/etc/phpmyadmin/config.inc.php"
+  config.vm.provision "file", source: "./configs/phpmyadmin/phpMyAdmin.conf", destination: "/tmp/phpMyAdmin.conf"
+  config.vm.provision "file", source: "./configs/phpmyadmin/config.inc.php", destination: "/tmp/config.inc.php"
 
   config.vm.provision "shell", inline: <<-SHELL
+    sudo cp /tmp/phpMyAdmin.conf /etc/httpd/conf.d/phpMyAdmin.conf
+    sudo cp /tmp/config.inc.php /etc/phpMyAdmin/config.inc.php
     sudo systemctl restart httpd.service
   SHELL
 
