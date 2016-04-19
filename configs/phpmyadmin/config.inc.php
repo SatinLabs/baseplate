@@ -1,5 +1,7 @@
 <?php
 
+/* Another thing here */
+
 /* Servers configuration */
 $i = 0;
 
